@@ -2,16 +2,19 @@ import react from "react";
 import axios from "axios";
 
 function App() {
-  return (
-    <div className="App">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a>
-          Learn React
-        </a>
-    </div>
-  );
+const [allComments, setAllComments] = useState([{}]);
+async function getComments(){
+  let comment = await axios.get("http://localhost:3011/api/comments");
+
+console.log(comment.data);
+setAllComments(comment.data)
+}
 }
 
 export default App;
+
+return (
+  <div className="App">
+
+  </div>
+)
