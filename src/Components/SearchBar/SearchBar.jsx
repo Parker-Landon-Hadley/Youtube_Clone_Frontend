@@ -1,5 +1,5 @@
 import axios from "axios";
-import react, {useState} from "react";
+import React, {useState} from "react";
 import "bootswatch/dist/simplex/bootstrap.min.css";
 
 const SearchBar = (props) => {

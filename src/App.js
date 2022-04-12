@@ -1,6 +1,7 @@
 import react, {useState} from "react";
 import axios from "axios";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 
 function App() {
 
@@ -17,6 +18,7 @@ async function getComments(){
 return (
   <div className="App">
     <SearchBar/>
+    <VideoPlayer/>
   </div>
 )
 }
