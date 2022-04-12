@@ -15,6 +15,14 @@ async function getComments(){
   setAllComments(comment.data)
 }
 
+function videoSearch() {
+  async function searchedVideos(){
+    let videos = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${text}&key=${KEY}`)
+
+    
+  }
+}
+
 return (
   <div className="App">
     <SearchBar/>
