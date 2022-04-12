@@ -2,6 +2,8 @@ import react, {useState} from "react";
 import axios from "axios";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
+import Comments from "./Components/Comments/Comments";
+// import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
 
 function App() {
 
@@ -15,7 +17,7 @@ async function getComments(){
   setAllComments(comment.data)
 }
 
-function videoSearch() {
+function videoSearch(text) {
   async function searchedVideos(){
     let videos = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${text}&key=${KEY}`)
 
@@ -29,6 +31,9 @@ return (
   <div className="App">
     <SearchBar/>
     <VideoPlayer/>
+    <h1>Comments!!!</h1>
+    <Comments/>
+    {/* <VideoSuggestion/> */}
   </div>
 )
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "bootswatch/dist/simplex/bootstrap.min.css";
 
 
@@ -11,7 +11,7 @@ const SearchBar = (props) => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">YouTube</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,7 +24,7 @@ const SearchBar = (props) => {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>

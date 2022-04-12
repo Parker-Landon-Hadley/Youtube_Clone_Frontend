@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 
 
-function VideoPlayer(props) {
+const VideoPlayer = (props) => {
     
-return(
+return (
+  <div>
     <iframe
         id="ytplayer"
         type="text/html"
         width="640"
         height="360"
-        // src={`https://www.youtube.com/embed/${}`}
+        src={`https://www.youtube.com/embed/${props.videoId}`}
         frameBorder="0"
       ></iframe>
+  </div>
 
-)
+  );
 };
 export default VideoPlayer
