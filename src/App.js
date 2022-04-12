@@ -1,5 +1,6 @@
-import react from "react";
+import react, {useState} from "react";
 import axios from "axios";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
 
@@ -15,7 +16,7 @@ async function getComments(){
 
 return (
   <div className="App">
-    
+    <SearchBar/>
   </div>
 )
 }
