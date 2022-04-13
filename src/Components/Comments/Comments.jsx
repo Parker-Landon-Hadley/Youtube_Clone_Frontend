@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Comments() {
   let { id } = useParams();
@@ -9,7 +10,7 @@ function Comments() {
   const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3011/posts/byId/${id}`).then((response) => {
+    axios.get(`http://localhost:3011/comments/:commentId/${id}`).then((response) => {
       setPostObject(response.data);
     });
 
@@ -32,6 +33,7 @@ function Comments() {
   };
 
   return (
+      
     <div className="postPage">
       <div className="leftSide">
         <div className="post" id="individual">
@@ -40,6 +42,7 @@ function Comments() {
           <div className="footer">{postObject.username}</div>
         </div>
       </div>
+
       <div className="rightSide">
         <div className="addCommentContainer">
           <input

@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
+import "bootswatch/dist/simplex/bootstrap.min.css";
 // import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
 
 function App() {
