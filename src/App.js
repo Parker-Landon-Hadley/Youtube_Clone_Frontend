@@ -31,7 +31,6 @@ return (
   <div className="App">
     <SearchBar/>
     <VideoPlayer/>
-    <h1>Comments!!!</h1>
     <Comments/>
     {/* <VideoSuggestion/> */}
   </div>
