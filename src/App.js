@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
 import "bootswatch/dist/simplex/bootstrap.min.css";
@@ -21,26 +22,25 @@ async function getComments(){
   setAllComments(comment.data)
 }
 
-function videoSearch(text) {
-  async function searchedVideos(){
-    let videos = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${text}&key=${KEY}`)
-
-    
-  }
-
-
+async function ytVideos(){
+  const video = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoSearch}&key=${KEY}`);
+  console.log(video.data.items[0].id.videoId);
+  setVideoData(video.data.items[0].id.videoId)
+  
+  
 }
 
 useEffect(()=>{
   ytVideos();
-},[]);
+},[videoSearch]);
 
 return (
   <div className="App">
-    <SearchBar/>
-    <VideoPlayer/>
-    <Comments/>
-    {/* <VideoSuggestion/> */}
+    <SearchBar setVideoSearch ={setVideoSearch}/>
+    <VideoPlayer videoData = {videoData}/>
+    <Comments allComments = {allComments}/>
+
+
   </div>
 )
 }

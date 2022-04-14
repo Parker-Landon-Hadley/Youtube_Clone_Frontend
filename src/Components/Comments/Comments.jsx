@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from 'react';
-
-
-const Comments = (props) => {
-    return ( 
-        <h2>Comments section under construction</h2>
-     );
-}
- 
-export default Comments;
-=======
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -83,4 +71,3 @@ function Comments() {
 }
 
 export default Comments;
->>>>>>> 170f3c792faa32e9b3202eab97c26233d5d000a3
