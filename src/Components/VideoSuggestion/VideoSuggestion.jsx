@@ -1,31 +1,51 @@
 import React, { useState } from 'react';
+import './VideoSuggestion.css'
 
-const VideoSuggestion = (props) => {    
+
+const VideoSuggestion = (props) => {
+
+    function handleClick(event, relatedVideo) {
+        event.preventDefault();
+        props.setVideoSearch(relatedVideo);
+        console.log('hello');
+    }
+
+    return (
+    <div>
+      <table>
+          <thead>
+              <tr>
+                  <th>
+                      Related Videos
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+        {props.relatedVideoId.map((relatedVideo) => {
+          try {
+            return (
+                <tr>
+                    <td>
+              <button className="btn btn-outline-danger border border-dark border-2" type="button" onClick={(e) => handleClick(e, relatedVideo.id.videoId)}>
+                <img
+                  id="ytplayer"
+                  SameSite="None"
+                  type="text/html"
+                  src={`https://img.youtube.com/vi/${relatedVideo.id.videoId}/default.jpg`}
+                  alt="./Sad.png"
+                  frameBorder="0"
+                />
+              </button>
+              </td>
+              </tr>
+            );
+          } catch (error) {}
+        })}
+        </tbody>
         
-        function handleClick(event,relatedVid){
-            event.preventDefault();
-            props.videoIdSearch(relatedVid)
-            console.log("hello")
-        }
+      </table>
+    </div>
+  );
+};
 
-
-    return (  
-        <div>
-            { props.relatedVideoID.map((relatedVid) => {
-                try{
-                return <button type="button" onClick={(e) => handleClick(e, relatedVid)}><img id="ytplayer" SameSite='None' type="text/html"  src={`https://img.youtube.com/vi/${relatedVid}/default.jpg`} alt="./Sad.png" frameBorder="0"/></button>
-                }catch(error){
-                    
-                }
-            
-            
-            })
-            }
-        </div>
-
-
-        
-    );
-}
- 
 export default VideoSuggestion;
