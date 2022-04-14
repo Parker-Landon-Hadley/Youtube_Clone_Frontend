@@ -2,9 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import "bootswatch/dist/simplex/bootstrap.min.css";
 
-
-
 const SearchBar = (props) => {
+
+  
+
+  const handleSearch = (event) =>{
+    event.preventDefault();
+  }
+
+  const handleVideoSubmit = (event) => {
+    event.preventDefault();
+    props.setVideoSearch(event.target.searchInput.value);
+    
+  }
 
 
 
@@ -48,7 +58,6 @@ const SearchBar = (props) => {
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
-  </div>
 </nav>
         
     )

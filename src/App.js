@@ -1,6 +1,5 @@
-import react, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
-import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
 import "bootswatch/dist/simplex/bootstrap.min.css";
@@ -9,7 +8,11 @@ import "bootswatch/dist/simplex/bootstrap.min.css";
 function App() {
 
 const [allComments, setAllComments] = useState([{}]);
+const [videoSearch, setVideoSearch] = useState("");
+const [videoData, setVideoData] = useState("");
 const KEY = "AIzaSyCWTfthdoWijFdAAnpJbxdVJbXvBVqZirU";
+
+
 
 async function getComments(){
   let comment = await axios.get("http://localhost:3011/api/comments");
@@ -27,6 +30,10 @@ function videoSearch(text) {
 
 
 }
+
+useEffect(()=>{
+  ytVideos();
+},[]);
 
 return (
   <div className="App">
