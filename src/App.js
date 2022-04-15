@@ -3,7 +3,13 @@ import axios from "axios";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
+<<<<<<< HEAD
+import "bootswatch/dist/simplex/bootstrap.min.css";
+
+// import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
+=======
 import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
+>>>>>>> 8f0d6ff37412340f3599ff00eb611edc0e4e3023
 
 
 export default function App() {
@@ -46,11 +52,17 @@ return (
 <div>
     <SearchBar setVideoSearch ={setVideoSearch}/>
     <VideoPlayer videoData = {videoData}/>
+<<<<<<< HEAD
+    <Comments allComments = {allComments}
+      commentsUrl="http://localhost:3011/api/comments"
+      currentUserId="1"/>
+=======
     <Comments allComments = {allComments}/>
     < VideoSuggestion relatedVideoId={relatedVideoId} setVideoSearch ={setVideoSearch} />
 
     </div>
 )
+>>>>>>> 8f0d6ff37412340f3599ff00eb611edc0e4e3023
 
 };
 
