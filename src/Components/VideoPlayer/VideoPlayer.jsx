@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./VideoPlayer.css"
 
 
 
@@ -7,16 +8,13 @@ function VideoPlayer(props) {
   let videoURL = `https://www.youtube.com/embed/${props.videoData}?autoplay=1`
     
 return (
-  <div>
-<iframe className="VideoPlayer"
-id="ytplayer" 
-type="text/html" 
-width="640"
- height="360"
-src= {videoURL}
-frameborder="0"></iframe>
+ <div className="main-content">
+  <div className="container">
+<iframe 
+className="resp-iframe"
+src= {videoURL}></iframe>
   </div>
-
+</div>
   );
 };
 export default VideoPlayer

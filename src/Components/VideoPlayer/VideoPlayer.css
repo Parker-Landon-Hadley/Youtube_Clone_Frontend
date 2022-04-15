@@ -1,3 +1,23 @@
-.VideoPlayer{
-    position: static;
+.main-content{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
+    background: lightgrey;
+}
+
+.resp-iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid red;
 }

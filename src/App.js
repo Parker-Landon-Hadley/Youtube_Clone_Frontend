@@ -43,13 +43,12 @@ const relatedVideos = async (searchString) => {
 
 
 return (
-  <div className="App">
+<div>
     <SearchBar setVideoSearch ={setVideoSearch}/>
-    <div className="AppPage">
     <VideoPlayer videoData = {videoData}/>
     <Comments allComments = {allComments}/>
-    < VideoSuggestion relatedVideoId={relatedVideoId} />
-    </div>
+    < VideoSuggestion relatedVideoId={relatedVideoId} setVideoSearch ={setVideoSearch} />
+
     </div>
 )
 
