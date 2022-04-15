@@ -8,7 +8,7 @@ function VideoPlayer(props) {
     
 return (
   <div>
-<iframe 
+<iframe className="VideoPlayer"
 id="ytplayer" 
 type="text/html" 
 width="640"
