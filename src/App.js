@@ -4,6 +4,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
 import "bootswatch/dist/simplex/bootstrap.min.css";
+
 // import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
 
 function App() {
@@ -38,7 +39,9 @@ return (
   <div className="App">
     <SearchBar setVideoSearch ={setVideoSearch}/>
     <VideoPlayer videoData = {videoData}/>
-    <Comments allComments = {allComments}/>
+    <Comments allComments = {allComments}
+      commentsUrl="http://localhost:3011/api/comments"
+      currentUserId="1"/>
 
 
   </div>
