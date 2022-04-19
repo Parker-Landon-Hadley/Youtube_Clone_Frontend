@@ -4,17 +4,29 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Comments from "./Components/Comments/Comments";
 import VideoSuggestion from "./Components/VideoSuggestion/VideoSuggestion";
+import VideoDescription from "./Components/VideoDescription/VideoDescription";
 
 
 export default function App() {
 
   const [allComments, setAllComments] = useState([{}]);
   const [relatedVideoId, setRelatedVideoId] = useState([]);
+  const [videoDescription, setVideoDescription] = useState([]);
   const [videoSearch, setVideoSearch] = useState("");
   const [videoData, setVideoData] = useState("");
+    
   
   const KEY = "AIzaSyARmQ33Tr4p7wSLYNBlZNqWKEpB8kvBxvQ";
+  
+  
+  
 
+  async function videoDescrip(searchString) {
+    let description = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${searchString}&key=${KEY}`);
+    console.log(description.data.items[0].snippet.description);
+    setVideoDescription([description.data.items[0].snippet.description, description.data.items[0].snippet.title])
+  }
+  
 
 
   async function getComments(){
@@ -29,6 +41,8 @@ export default function App() {
     console.log(video.data.items[0].id.videoId);
     setVideoData(video.data.items[0].id.videoId)
     relatedVideos(video.data.items[0].id.videoId)
+    videoDescrip(video.data.items[0].id.videoId)
+    
   }
   const relatedVideos = async (searchString) => {
     
@@ -41,7 +55,12 @@ export default function App() {
 
   useEffect(()=>{
     ytVideos();
-  },[videoSearch, setRelatedVideoId]);
+  },[videoSearch, setRelatedVideoId]);  
+
+  // useEffect(()=>{
+  //   videoDescrip();
+  // },[videoData, setVideoDescription]); 
+  
 
 
   return (
@@ -49,6 +68,7 @@ export default function App() {
       <SearchBar setVideoSearch ={setVideoSearch}/>
       <div className="AppPage">
       <VideoPlayer videoData = {videoData}/>
+      <VideoDescription videoDescrips = {videoDescription} />
       <Comments allComments = {allComments}/>
       <VideoSuggestion relatedVideoId={relatedVideoId } setVideoData ={setVideoData} setRelatedVideo = {relatedVideos} />
       </div>
