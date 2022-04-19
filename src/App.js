@@ -12,7 +12,7 @@ const [allComments, setAllComments] = useState([{}]);
 const [relatedVideoId, setRelatedVideoId] = useState([]);
 const [videoSearch, setVideoSearch] = useState("");
 const [videoData, setVideoData] = useState("");
-const KEY = "AIzaSyAA-ojqdg9aigtdPhWZh9edreznNTNlDhU";
+const KEY = "AIzaSyCLEuHBTesPZTxtEmIRA58cTdxHwDavphs";
 
 
 
@@ -54,7 +54,6 @@ return (
     <VideoPlayer videoData = {videoData}/>
     < VideoSuggestion relatedVideoId={relatedVideoId} setVideoSearch ={setVideoSearch} />
     <Comments allComments = {allComments} videoData = {videoData} getComments = {getComments}/>
-
     </div>
 )
 
