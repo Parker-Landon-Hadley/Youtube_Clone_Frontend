@@ -1,73 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Comments() {
-  let { id } = useParams();
-  const [postObject, setPostObject] = useState({});
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState("");
+const Comments = (props) => {
+    
 
-  useEffect(() => {
-    axios.get(`http://localhost:3011/comments/:commentId/${id}`).then((response) => {
-      setPostObject(response.data);
-    });
+async function handleAddComment (event) {
+    event.preventDefault();
+    console.log("New Comment", event.target.userName.value, event.target.userComment.value)
+    let res = await axios.post("http://localhost:3011/api/comments", {
+        name: event.target.userName.value,
+        userComment: event.target.userComment.value,
+        videoId: props.videoData,
+    })
+    props.getComments();    
+    console.log(res)
+};
 
-    axios.get(`http://localhost:3011/comments/${id}`).then((response) => {
-      setComments(response.data);
-    });
-  }, []);
 
-  const addComment = () => {
-    axios
-      .post("http://localhost:3011/comments", {
-        commentBody: newComment,
-        PostId: id,
-      })
-      .then((response) => {
-        const commentToAdd = { commentBody: newComment };
-        setComments([comments, commentToAdd]);
-        setNewComment("");
-      });
-  };
-
-  return (
-      
-    <div className="postPage">
-      <div className="leftSide">
-        <div className="post" id="individual">
-          <div className="title"> {postObject.title} </div>
-          <div className="body">{postObject.postText}</div>
-          <div className="footer">{postObject.username}</div>
+    return (  
+        <div className="comment">
+            
+            
+           {props.allComments.map((comment) => {
+               console.log(props)
+               return(
+                   
+               <div>
+                   <h3>{comment.name}</h3>
+                   <p>{comment.userComment}</p> 
+                   </div>
+               );               
+            }    
+           )}
+           <h2>Comment</h2>
+            <form onSubmit={handleAddComment}>
+                <input className="userName"
+                type= 'text'
+                name = 'userName'
+                required = "required"
+                placeholder="Name..."
+                />
+                <input className="userComment"
+                type= 'text'
+                name = 'userComment'
+                required = "required"
+                placeholder="Comment..."
+                />
+                <button type="submit">Add Comment</button>
+            </form>
         </div>
-      </div>
-
-      <div className="rightSide">
-        <div className="addCommentContainer">
-          <input
-            type="text"
-            placeholder="Comment..."
-            autoComplete="off"
-            value={newComment}
-            onChange={(event) => {
-              setNewComment(event.target.value);
-            }}
-          />
-          <button onClick={addComment}> Add Comment</button>
-        </div>
-        <div className="listOfComments">
-          {comments.map((comment, key) => {
-            return (
-              <div key={key} className="comment">
-                {comment.commentBody}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
+    );
+}           
 export default Comments;

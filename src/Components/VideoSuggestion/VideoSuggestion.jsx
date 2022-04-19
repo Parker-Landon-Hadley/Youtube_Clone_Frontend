@@ -31,7 +31,7 @@ const VideoSuggestion = (props) => {
             return (
                 <tr>
                     <td>
-              <button className="btn btn-outline-danger border border-dark border-2" type="button" onClick={(e) => handleClick(e, relatedVideo.id.videoId)}>
+              <button className="btn btn-outline-danger border border-dark border-2" type="button" onClick={handleClick}>
                 <img
                   id="ytplayer"
                   SameSite="None"
