@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import './VideoSuggestion.css'
 
 
-const VideoSuggestion = (props) => {
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    props.setVideoSearch(event.target.searchInput.value);
-    
-  }
+
+const VideoSuggestion = (props) => {
+  
+
+    function handleClick(event, relatedVideo) {
+        event.preventDefault();
+        props.setVideoData(relatedVideo);
+        props.setRelatedVideo(relatedVideo);
+        
+        console.log('hello');
+    }
 
     return (
     <div>

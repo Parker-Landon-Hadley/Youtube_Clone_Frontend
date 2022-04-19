@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import "./SearchBar.css";
+
 const SearchBar = (props) => {
   const handleSearch = (event) =>{
     event.preventDefault();
